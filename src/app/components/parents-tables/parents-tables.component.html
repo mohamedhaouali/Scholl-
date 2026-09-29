@@ -1,0 +1,33 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">FirstName</th>
+      <th scope="col">LastName</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Adress</th>
+      <th scope="col">Actions</th>
+     
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let element of parentsTab">
+      <th scope="row">{{ element._id }}</th>
+      <td>{{ element.firstName }}</td>
+      <td>{{ element.lastName }}</td>
+      <td>{{ element.email }}</td>
+      <td>{{ element.phone }}</td>
+      <td>{{ element.adress }}</td>
+         <td>
+        <button class="btn btn-info" (click)="displayParent(element._id)">Display</button>
+        <button class="btn btn-warning" (click)="editParent(element._id)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteParent(element._id)">Delete</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+

@@ -1,0 +1,89 @@
+<!-- START SECTION TOP -->
+<section class="section-top">
+    <div class="container">
+        <div class="col-lg-10 offset-lg-1 text-center">
+            <div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                <h1>Dashboard Admin</h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li> / Course details</li>
+                </ul>
+            </div><!-- //.HERO-TEXT -->
+        </div><!--- END COL -->
+    </div><!--- END CONTAINER -->
+</section>	
+<!-- END SECTION TOP -->
+
+<!-- START COURSE -->
+<section class="our_event section-padding">
+    <div class="container">
+        <div class="row">	
+            <div class="col-lg-12 col-sm-8 col-xs-12">
+        
+                <div class="course-details-content section-bg">
+                    <!-- Barre des Onglets (Navigation) -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a href="#teachers" class="nav-link active" data-bs-toggle="tab">Teachers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#students" class="nav-link" data-bs-toggle="tab">Students</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#courses" class="nav-link" data-bs-toggle="tab">Course</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#parents" class="nav-link" data-bs-toggle="tab">Parents</a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- ✔️ Correction de l'encre : pointait vers #reviews au lieu de #classes -->
+                            <a href="#classes" class="nav-link" data-bs-toggle="tab">Classes</a>
+                        </li>
+                    </ul>
+
+                    <!-- Contenu des Onglets -->
+                    <div class="tab-content" id="myTabContent">
+                        <!-- Onglet Teachers -->
+                        <div class="tab-pane show fade active" id="teachers" role="tabpanel">
+                            <div class="overview">
+                                <app-teachers-tables></app-teachers-tables>
+                            </div>
+                        </div>
+
+                        <!-- Onglet Students -->
+                        <div class="tab-pane fade" id="students" role="tabpanel">
+                            <div class="overview">
+                                <app-students-tables></app-students-tables>
+                            </div>
+                        </div>
+
+                        <!-- Onglet Cours -->
+                        <div class="tab-pane fade" id="courses" role="tabpanel">
+                            <div class="overview text-center">
+                                <app-courses-tables></app-courses-tables>
+                            </div>
+                        </div>
+
+                        <!-- Onglet Parents -->
+                        <!-- ✔️ Correction de l'id : unique et renommé en #parents -->
+                        <div class="tab-pane fade" id="parents" role="tabpanel">
+                            <div class="overview">
+                                <app-parents-tables></app-parents-tables>
+                            </div>
+                        </div>
+
+                        <!-- Onglet Classes -->
+                        <!-- ✔️ Correction de l'id : unique et renommé en #classes -->
+                        <div class="tab-pane fade" id="classes" role="tabpanel">
+                            <div class="overview">
+                                <!-- Votre composant révisé avec le tableau s'affichera proprement ici -->
+                                <app-classes-tables></app-classes-tables>
+                            </div>
+                        </div>
+                    </div>
+                </div>						
+            </div><!--- END COL -->
+        </div><!-- END ROW -->
+    </div><!-- END CONTAINER -->
+</section>
+<!-- END COURSE -->

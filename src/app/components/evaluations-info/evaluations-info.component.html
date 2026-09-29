@@ -1,0 +1,28 @@
+<!-- START SECTION TOP -->
+<section class="section-top">
+	<div class="container">
+		<div class="col-lg-10 offset-lg-1 text-center">
+			<div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+				<h1>Notes Students</h1>
+				<ul>
+					<li><a routerLink="">Home</a></li>
+					<li> / Evaluation Details</li>
+				</ul>
+			</div><!-- //.HERO-TEXT -->
+		</div><!--- END COL -->
+	</div><!--- END CONTAINER -->
+</section>	
+<!-- END SECTION TOP -->
+
+<!-- 🟢 CORRECTION : Liaison avec la variable exacte déclarée au pluriel 'foundEvaluations' -->
+@if (foundEvaluations && foundEvaluations._id) {
+    <app-evaluations [obj]="foundEvaluations"></app-evaluations>
+} @else if (errorMsg) {
+    <div class="container mt-4 text-center">
+        <div class="alert alert-danger">{{ errorMsg }}</div>
+    </div>
+} @else {
+    <div class="container mt-4 text-center">
+        <p>Chargement des détails de la note...</p>
+    </div>
+}

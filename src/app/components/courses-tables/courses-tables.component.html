@@ -1,0 +1,46 @@
+<div *ngIf="loading">Chargement...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<table class="table" *ngIf="!loading && !error && coursTab.length > 0">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Duration</th>
+      <th scope="col">Teachers</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let element of coursTab">
+      <td>{{ element._id }}</td>
+      <td>{{ element.name }}</td>
+      <td>{{ element.description }}</td>
+      <td>{{ element.duree }}</td>
+      <td>
+        {{ element.tId?.firstName }} {{ element.tId?.lastName }}<br>
+        {{ element.tId?.email }}<br>
+        {{ element.tId?.specialite }}<br>
+      </td>
+<td>
+  <button class="btn btn-info" (click)="displayCour(element._id)">Display</button>
+
+  @if (canEdit) {
+    <button class="btn btn-warning" (click)="editCour(element._id)">Edit</button>
+  }
+
+  @if (role === 'teacher') {
+    <button class="btn btn-danger" (click)="deleteCour(element._id)">Delete</button>
+  }
+    @if (role === 'admin') {
+    <button class="btn btn-danger" (click)="deleteCour(element._id)">Delete</button>
+  }
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="!loading && !error && coursTab.length === 0">
+  Vous n'êtes inscrit à aucun cours pour le moment.
+</div>

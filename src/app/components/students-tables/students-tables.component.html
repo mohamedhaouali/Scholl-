@@ -1,0 +1,49 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">FirstName</th>
+      <th scope="col">LastName</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Adress</th>
+      <th scope="col">Pictures</th>
+      <th scope="col">Course</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of studentsTab">
+      <th scope="row">{{ student._id }}</th>
+      <td>{{ student.firstName }}</td>
+      <td>{{ student.lastName }}</td>
+      <td>{{ student.email }}</td>
+      <td>{{ student.phone }}</td>
+      <td>{{ student.adress }}</td>
+          <!-- Affichage de l'image à la place du texte brut -->
+<td>
+  <img [src]="'http://localhost:3000/images/' + student.photo" 
+       alt="Photo de {{ student.firstName }}" 
+       style="width: 55px; height: 55px; border-radius: 50%; object-fit: cover;"
+       onerror="this.src='assets/img/team/team1.jpg';">
+</td>
+
+      <td>
+        <div *ngFor="let classe of student.classesList">
+          <div *ngIf="classe.courId">
+            Name: {{ classe.courId.name }}<br>
+            Duree: {{ classe.courId.duree }}<br>
+            Description: {{ classe.courId.description }}<br>
+            <hr>
+          </div>
+        </div>
+      </td>
+
+      <td>
+        <button class="btn btn-info" (click)="displayStudent(student._id)">Display</button>
+        <button class="btn btn-warning" (click)="editStudent(student._id)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteStudent(student._id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

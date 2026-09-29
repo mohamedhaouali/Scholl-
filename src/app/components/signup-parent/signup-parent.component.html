@@ -1,0 +1,187 @@
+
+		<!-- START SECTION TOP -->
+		<section class="section-top">
+			<div class="container">
+				<div class="col-lg-10 offset-lg-1 text-center">
+					<div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+						<h1>Signup Parent</h1>
+						
+					</div><!-- //.HERO-TEXT -->
+				</div><!--- END COL -->
+			</div><!--- END CONTAINER -->
+		</section>	
+		<!-- END SECTION TOP -->
+		
+		<!-- START ADDRESS -->
+		<section class="address_area section-padding">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-lg-4 col-sm-4 col-xs-12 no-padding wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
+						<div class="single_address sa_one">
+							<i class="ti-map"></i>
+							<h4>Our Location</h4>
+							<p>3481 Melrose Place, Beverly Hills <br /> CA 90210</p>
+						</div>
+					</div><!-- END COL -->
+					<div class="col-lg-4 col-sm-4 col-xs-12 no-padding wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">
+						<div class="single_address sa_two">
+							<i class="ti-mobile"></i>
+							<h4>Telephone</h4>
+							<p>(+1) 517 397 7100</p>
+							<p>(+1) 411 315 8138</p>
+						</div>
+					</div><!-- END COL -->
+					<div class="col-lg-4 col-sm-4 col-xs-12 no-padding wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+						<div class="single_address sa_three">
+							<i class="ti-email"></i>
+							<h4>Send email</h4>
+							<p>#</p>
+							<p>#</p>
+						</div>
+					</div><!-- END COL -->			  
+				</div><!--- END ROW -->
+			</div><!--- END CONTAINER -->
+		</section>
+		<!-- END ADDRESS -->	
+
+		<!-- CONTACT -->
+		<div id="contact" class="contact_area section-padding">
+			<div class="container">			
+				<div class="row">					
+					<div class="col-lg-7 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">		
+						<div class="contact">
+						 <form [formGroup]="signupForm">
+								<div class="row">
+									<div class="form-group col-md-6">
+										<label for="">First Name</label>
+										<input type="text" formControlName="firstName" class="form-control" placeholder="FirstName">
+									</div>
+
+                      <div *ngIf="signupForm.controls['firstName'].invalid && 
+  (signupForm.controls['firstName'].touched || signupForm.controls['firstName'].dirty)"
+  
+   class="text-danger">
+
+    <div>
+
+      <div *ngIf="signupForm.controls['firstName'].errors?.['required']">First Name is required</div>
+      <div *ngIf="signupForm.controls['firstName'].errors?.['minlength']">First Name must be at least 6 characters long</div>
+      <div *ngIf="signupForm.controls['firstName'].errors?.['pattern']">First Name must contain only letters</div>
+    </div>
+
+  </div>
+
+  <div class="form-group col-md-6">
+										<label for="">Last Name</label>
+										<input type="text" formControlName="lastName" class="form-control" placeholder="LastName">
+									</div>
+
+
+   <div *ngIf="signupForm.controls['lastName'].invalid && 
+  (signupForm.controls['lastName'].touched || signupForm.controls['lastName'].dirty)"
+  
+   class="text-danger">
+
+    <div>
+
+      <div *ngIf="signupForm.controls['lastName'].errors?.['required']">Last Name is required</div>
+      <div *ngIf="signupForm.controls['lastName'].errors?.['minlength']">Last Name must be at least 5 characters long</div>
+      <div *ngIf="signupForm.controls['lastName'].errors?.['pattern']">Last Name must contain only letters</div>
+    </div>
+
+  </div>                                 
+
+
+									<div class="form-group col-md-6">
+										<label for="">Your Email</label>
+										<input type="email" formControlName="email" class="form-control" placeholder="Your Email">
+									</div>
+   <div *ngIf="signupForm.controls['email'].invalid && 
+  (signupForm.controls['email'].touched || signupForm.controls['email'].dirty)"
+  
+   class="text-danger">
+
+    <div>
+
+      <div *ngIf="signupForm.controls['email'].errors?.['required']">Email is required</div>
+      <div *ngIf="signupForm.controls['email'].errors?.['email']">Please enter a valid email</div>
+    </div>
+
+  </div> 
+
+  									<div class="form-group col-md-6">
+										<label for="">Phone</label>
+										<input type="number" formControlName="phone" class="form-control" placeholder="Your Telephone">
+									</div>
+   <div *ngIf="signupForm.controls['phone'].invalid && 
+  (signupForm.controls['phone'].touched || signupForm.controls['phone'].dirty)"
+  
+   class="text-danger">
+
+    <div>
+
+      <div *ngIf="signupForm.controls['phone'].errors?.['required']">Telephone is required</div>
+      <div *ngIf="signupForm.controls['phone'].errors?.['pattern']">Please enter a valid telephone number</div>
+      <div *ngIf="signupForm.controls['phone'].errors?.['minlength']">Telephone must be at least 8 characters long</div>
+    </div>
+
+  </div> 
+
+
+									<div class="form-group col-md-6">
+										<label for="">Adress</label>
+										<input type="text" formControlName="adress" class="form-control" placeholder="Your Address">
+									</div>
+<div *ngIf="signupForm.controls['adress'].invalid && 
+  (signupForm.controls['adress'].touched || signupForm.controls['adress'].dirty)"
+  
+   class="text-danger">
+
+    <div>
+
+      <div *ngIf="signupForm.controls['adress'].errors?.['required']">Address is required</div>
+      <div *ngIf="signupForm.controls['adress'].errors?.['minlength']">Address must be at least 10 characters long</div>
+    </div>
+
+  </div>
+
+  								<div class="form-group col-md-6">
+										<label for="">Password</label>
+										<input type="password" formControlName="pwd" class="form-control" placeholder="Your Password">
+									</div>
+<div *ngIf="signupForm.controls['pwd'].invalid && 
+  (signupForm.controls['pwd'].touched || signupForm.controls['pwd'].dirty)"
+  
+   class="text-danger">
+
+    <div>
+
+      <div *ngIf="signupForm.controls['pwd'].errors?.['required']">Password is required</div>
+      <div *ngIf="signupForm.controls['pwd'].errors?.['minlength']">Password must be at least 8 characters long</div>
+    </div>
+
+  </div>
+
+									<div class="col-md-12 text-center">
+										<button type="submit"  (click)="signupparent()"value="Send message" name="submit" id="submitButton" class="btn_one" title="Submit Your Message!">Send Message</button>
+									</div>
+								</div>
+								<span class="text-danger">{{errorMsg}}</span>
+							</form>
+						</div>
+					</div><!-- END COL  -->
+					<div class="col-lg-5 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">		<div class="map">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.957183635167!2d-74.00402768559431!3d40.71895904512855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2598a1316e7a7%3A0x47bb20eb6074b3f0!2sNew%20Work%20City%20-%20(CLOSED)!5e0!3m2!1sbn!2sbd!4v1600305497356!5m2!1sbn!2sbd" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+						</div>					
+					</div><!-- END COL  -->				
+				</div><!-- END ROW -->				
+			</div><!--- END CONTAINER -->
+		</div>
+		<!-- END CONTACT -->
+		
+		<!-- START FOOTER -->
+		
+		<!-- END FOOTER -->	
+
+
+

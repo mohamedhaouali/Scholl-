@@ -1,0 +1,38 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Students</th>
+      <th scope="col">Course</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let element of classesTab">
+      <td>{{ element._id }}</td>
+     <td>{{ element .name || 'Nom non renseigné' }}</td>
+<td>
+  
+          Nom:{{ element.tId.firstName }} {{ element.tId.lastName }}<br>
+         Email: {{ element.tId.email }}<br>
+         Phone: {{ element.tId.phone }}<br>
+         </td>
+
+
+   <td>
+          {{element.courId?.name }}<br>
+          {{element.courId?.duree }}<br>
+          {{ element.courId?.description }}<br>
+         </td>
+
+
+      <td>
+        <button class="btn btn-info" (click)="displayClasse(element._id)">Display</button>
+        <button class="btn btn-warning" (click)="editClasse(element._id)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteClasse(element._id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

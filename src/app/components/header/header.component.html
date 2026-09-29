@@ -1,0 +1,63 @@
+<nav id="main-menu" class="d-flex align-items-center justify-content-between w-100">
+
+    <ul class="nav-links d-flex align-items-center m-0">
+        <li><a routerLink="">Home</a></li>
+   
+    
+        <!-- 👑 Admin Space : Visible UNIQUEMENT pour l'administrateur connecté -->
+        @if (isLoggedIn() && hasRole('Admin')) {
+            <li><a routerLink="admin">Admin Space</a></li>
+        }
+
+        <!-- 🔓 Lien Student Space : Visible par l'étudiant lui-même, les profs et les admins -->
+        @if (isLoggedIn() && (hasRole('student') || hasRole('admin') )) {
+            <li><a routerLink="student">Student Space</a></li>
+        }
+
+        <!-- 🔒 Lien Teacher Space : Visible uniquement pour les profs et les admins -->
+        @if (isLoggedIn() && (hasRole('teacher') || hasRole('admin'))) {
+            <li><a routerLink="teacher">Teacher Space</a></li>
+        }
+
+        <!-- 🔒 Gestion globale : Réservé aux enseignants / administrateurs -->
+        @if (isLoggedIn() && (hasRole('Admin') )) {
+    <li><a routerLink="addCours">Add Course</a></li>
+  
+    <li><a routerLink="addclasse">Add Classe</a></li>
+}
+
+@if (isLoggedIn() && (hasRole('Admin')|| hasRole('teacher')) ) {
+  <li><a routerLink="addevaluation">Add Note</a></li>
+    }
+
+        <!-- 🔍 Search Student : Visible pour admin et parent -->
+        @if (isLoggedIn() && (hasRole('Admin') || hasRole('parent'))) {
+            <li><a routerLink="searchstudents">Search Student</a></li>
+        }
+
+        <!-- 🟢 Liens d'inscription (Visiteurs anonymes) -->
+        @if (!isLoggedIn()) {
+            <li><a routerLink="signupstudent" class="btn_two">Signup student</a></li>
+            <li><a routerLink="signupparent" class="btn_three">Signup parent</a></li>                        
+        }
+       
+        <!-- 👥 Search teacher : Visible pour tout le monde connecté SAUF le teacher -->
+        @if (isLoggedIn() && !hasRole('teacher')) {
+            <li><a routerLink="searchteachers">Search teacher</a></li>
+        }
+    </ul>
+
+    <!-- BLOC D'AUTHENTIFICATION (Login / Logout) -->
+    <div class="auth-actions ms-auto">
+        @if (!isLoggedIn()) {
+            <a routerLink="signin" class="header-btn me-2">Login</a>
+            <a routerLink="signupteacher" class="btn_one">Signup teacher</a>
+        } @else {
+            <span class="user-badge me-3">
+                {{ connectedUser?.firstName }} {{ connectedUser?.lastName }}
+                <strong class="user-role">({{ connectedUser?.role }})</strong>
+            </span>
+            <a (click)="logout()" class="header-btn text-white bg-danger style-logout" style="cursor: pointer;">Logout</a>
+        }
+    </div>
+</nav>

@@ -1,0 +1,45 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">FirstName</th>
+      <th scope="col">LastName</th>
+      <th scope="col">Job</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Adress</th>
+      <th scope="col">Cv</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let element of teachersTab">
+      <th scope="row">{{ element._id }}</th>
+      <td>{{ element.firstName }}</td>
+      <td>{{ element.lastName }}</td>
+      <td>{{ element.specialite }}</td>
+      <td>{{ element.email }}</td>
+      <td>{{ element.phone }}</td>
+      <td>{{ element.adress }}</td>
+<td>
+  <a *ngIf="element.cv; else noCv"
+     [href]="'http://localhost:3000/cv/' + element.cv"
+     target="_blank">Voir le CV</a>
+  <ng-template #noCv><span>-</span></ng-template>
+</td>
+      <td>
+        <!-- 🟢 Boutons de validation : s'affichent uniquement si le compte est en attente (pending) -->
+        <button *ngIf="element.status === 'pending'" class="btn btn-success me-1" (click)="changeStatus(element._id, 'approved')">Valider</button>
+        <button *ngIf="element.status === 'pending'" class="btn btn-secondary me-1" (click)="changeStatus(element._id, 'rejected')">Rejeter</button>
+
+        <!-- Boutons d'actions standards -->
+        <button class="btn btn-info" (click)="displayTeacher(element._id)">Display</button>
+        
+        <!-- Le bouton Edit ne s'affiche que si l'enseignant n'est plus en attente -->
+        <button *ngIf="element.status !== 'pending'" class="btn btn-warning" (click)="editTeacher(element._id)">Edit</button>
+        
+        <button class="btn btn-danger" (click)="deleteTeacher(element._id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

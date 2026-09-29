@@ -1,0 +1,43 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Note</th>
+      <th scope="col">Assessment</th>
+      <th scope="col">Course</th>
+      <th scope="col">Students</th>
+      <th scope="col">Actions</th>
+    </tr>   
+  </thead>
+  <tbody>
+    <tr *ngFor="let element of evaluationsTab">
+      <td>{{ element._id }}</td>
+      <td>{{ element.note }}</td>
+      <td>{{ element.evaluation }}</td>
+      
+      <td>
+        Name: {{ element.tId?.name }}<br>
+        Duree: {{ element.tId?.duree }}<br>
+        Description: {{ element.tId?.description }}<br>
+      </td>
+
+      <td>
+        Name :{{ element.studentId?.firstName }} {{ element.studentId?.lastName }}<br>
+        Email :{{ element.studentId?.email }}<br>
+        Adresse: {{ element.studentId?.adress }}<br>
+      </td>
+    
+      <!-- 🟢 CORRECTION : Toutes les actions sont regroupées dans une seule colonne alignée -->
+      <td>
+        <!-- 👁️ Le bouton d'affichage (Display) reste toujours visible pour tout le monde -->
+        <button class="btn btn-info me-1" (click)="displayEvaluation(element._id)">Display</button>
+
+        <!-- 🔒 Les boutons Edit et Delete se masquent automatiquement si l'utilisateur connecté est un étudiant -->
+        @if (connectedUser?.role !== 'student' && connectedUser?.role !== 'Student') {
+            <button class="btn btn-warning me-1" (click)="editEvaluation(element._id)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteEvaluation(element._id)">Delete</button>
+        }
+      </td>
+    </tr>
+  </tbody>
+</table>

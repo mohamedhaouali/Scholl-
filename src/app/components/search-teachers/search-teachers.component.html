@@ -1,0 +1,41 @@
+		
+		<!-- CONTACT -->
+		<div id="contact" class="contact_area section-padding">
+			<div class="container">			
+				<div class="row">					
+					<div class="col-lg-12 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">		
+						<div class="contact">
+							<form #studentForm="ngForm" class="banner_subs" (ngSubmit)="searchTeacher()">
+								<div class="row">
+									<div class="fhome_sb">
+										
+	<input type="text" [(ngModel)]="teacher.specialite" name="specialite" class="form-control home_si"  placeholder="Search your course here" required="required" >
+                                      
+                                        
+									</div>
+
+                                     <div class="form-group text-center" >
+                <input type="submit"  (click)="searchTeacher()" class="btn btn-primary py-3 px-5" value="search">
+              </div>
+
+							
+									
+								</div>
+
+								  <!--Display matches-->
+               <div *ngFor="let m of teachersTab" style="margin-top :100px">
+                 <app-teachers [obj]="m"></app-teachers>
+               </div>
+							</form>
+						</div>
+					</div><!-- END COL  -->
+	
+				</div><!-- END ROW -->				
+			</div><!--- END CONTAINER -->
+		</div>
+		<!-- END CONTACT -->
+		
+	
+
+
+
