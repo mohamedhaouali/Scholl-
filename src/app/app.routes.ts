@@ -30,8 +30,8 @@ import { AddClassesComponent } from './components/add-classes/add-classes.compon
 import { ClassesInfoComponent } from './components/classes-info/classes-info.component';
 import { ClassesEditComponent } from './components/classes-edit/classes-edit.component';
 import { ClassesComponent } from './components/classes/classes.component';
-import { SearchStudentsComponent } from './search-students/search-students.component';
 import { roleGuard } from './components/role.guard';
+import { SearchStudentsComponent } from './components/search-students/search-students.component';
 
 export const routes: Routes = [
     // 🌍 Routes Publiques

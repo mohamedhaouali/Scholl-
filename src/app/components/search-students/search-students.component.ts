@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { UserService } from '../services/user.service';
 import { NgFor, NgIf } from '@angular/common';
-import { EvaluationsComponent } from '../components/evaluations/evaluations.component';
+import { UserService } from '../../services/user.service';
+import { EvaluationsComponent } from '../evaluations/evaluations.component';
+
 
 @Component({
   selector: 'app-search-students',

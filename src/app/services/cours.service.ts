@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, provideHttpClient } from '@angular/common/http'; // 1. L'import obligatoire
 
-
-
-
 @Injectable({
   providedIn: 'root'
 })

@@ -16,8 +16,6 @@ const mongoose = require('mongoose');
 //connex au bd 24 aout
 mongoose.connect('mongodb://127.0.0.1:27017/SchollCroco')
 
-
-
 //import bcrypt module (Crypting module)
 
 const bcrypt = require("bcrypt");
@@ -29,8 +27,6 @@ const path = require("path");
 
 //import axios module (API communication)
 const axios = require("axios");
-
-
 
 
 //App Configuration
@@ -57,6 +53,7 @@ const storageConfig = multer.diskStorage({
     cb(null, Date.now() + path.extname(file.originalname)); 
 } 
 });
+
 //Models importation (DB)
 const Cour = require ("./models/cour");
 const Evaluation = require ("./models/evaluation");
@@ -224,9 +221,6 @@ const removeFile = (file) => {
 
 // rend les CV accessibles via http://localhost:3000/cv/nom-du-fichier.pdf
 app.use("/cv", express.static(path.join("backend/uploads/cv")));
-
-
-
 
 // Business Logic : Get All Students
 
@@ -578,10 +572,8 @@ app.put("/users/teachers", (req, res) => {
 
 
 
-//Business Logic : Search teams By foundation
+//Business Logic : Search teachers By specialite
 
-// Assurez-vous que votre modèle Mongoose est bien importé en haut du fichier
-// const User = require('../models/User'); 
 
 app.get("/users/teachers/search/:specialite", (req, res) => {
     console.log("Business Logic : Search teachers By specialite");
@@ -1184,8 +1176,6 @@ app.delete("/classes/:id", (req, res) => {
 });
 
 
-
-// Récupérer tous les cours d'un étudiant donné
 // Récupérer tous les cours d'un étudiant donné
 app.get("/cours/student/:id", async (req, res) => {
     try {

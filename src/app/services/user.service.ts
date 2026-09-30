@@ -40,8 +40,7 @@ export class UserService {
     return this.httpClient.get<{ user: any }>(this.userURL + "/" + id);
   }
 
-  // 🟢 CORRECTION 1 : Suppression du "/users" en doublon pour les étudiants
-  // Devient : http://localhost:3000/users/students
+
   getAllStudents() {
     return this.httpClient.get<{ tab: any }>(this.userURL + "/students");
   }
@@ -76,8 +75,7 @@ export class UserService {
     return this.httpClient.put<{ msg: string }>(this.userURL + "/students", obj);
   }
 
-    // 🟢 CORRECTION 2 : Route d'ajout de l'enseignant (JSON direct)
-  // URL finale : http://localhost:3000/users/teachers
+
   addParent(obj: any) {
      return this.httpClient.post<{ msg: string }>(this.userURL + "/parents", obj);
   }
@@ -130,14 +128,13 @@ export class UserService {
     return this.httpClient.delete<{ msg: string }>(this.userURL + "/teachers/" + id);
   }
 
-    // 🟢 AJOUT : Méthode permettant de valider ou rejeter exclusivement un Teacher
+
   // URL finale ciblée : http://localhost:3000/users/teachers/:id/status
   updateTeacherStatus(id: any, status: 'approved' | 'rejected') {
     return this.httpClient.patch<{ msg: string }>(this.userURL + "/teachers/" + id + "/status", { status });
   }
 
-    //Request to search Matches by score
-// matchUrl = http: //localhost:3000/matches
+
 
 searchTeachersByspecialite(specialite: string) {
   return this.httpClient.get<{ msg: string, teachers: any }>(this.userURL + "/teachers/search/" + specialite);

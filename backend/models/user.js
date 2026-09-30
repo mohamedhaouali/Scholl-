@@ -14,8 +14,6 @@ const userSchema = mongoose.Schema({
     specialite: String,
     cv: String,   // 🆕 nom du fichier PDF du CV (teachers)
 
-    
-
   // Champ ajouté pour la validation des enseignants par l'Admin
     status: { 
         type: String, 
@@ -23,7 +21,7 @@ const userSchema = mongoose.Schema({
         default: 'pending' // Tout nouveau compte commence "En attente"
     },
 
-        //  va contenir une liste d'un _id du model player
+    //  va contenir une liste d'un _id du model player
     //du type ObjectId
     //players List = [17,6,1,99,87]
  teachersList: [
